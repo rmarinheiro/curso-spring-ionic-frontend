@@ -14,13 +14,10 @@ export class ClienteService{
    
         
         findByEmail(email:string):Observable<ClienteDTO>{
-            let token = this.storage.getLocalUser().token;
-
-            let auth = new HttpHeaders({'Authorization': 'Bearer ' + token});
+           
             console.log("Email do Usuário : " + email);
 
-            return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?email=${email}`,
-            {'headers': auth});
+            return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?email=${email}`);
         }
 
         getImageFromBucket(id:String):Observable<any>{
