@@ -1,0 +1,32 @@
+import { Injectable } from "../../../node_modules/@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs/RX";
+import { ClienteDTO } from "../../models/cliente.dto";
+import { API_CONFIG } from "../../config/api.config";
+import { StorageService } from "../storage.services";
+
+@Injectable()
+export class ClienteService{
+
+    constructor(public http:HttpClient, public storage: StorageService,){
+    }
+
+   
+        
+        findByEmail(email:string):Observable<ClienteDTO>{
+            let token = this.storage.getLocalUser().token;
+
+            let auth = new HttpHeaders({'Authorization': 'Bearer ' + token});
+            console.log("Email do Usuário : " + email);
+
+            return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?email=${email}`,
+            {'headers': auth});
+        }
+
+        getImageFromBucket(id:String):Observable<any>{
+            let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`;
+            console.log(url);
+            return this.http.get(url,{responseType:"blob"});
+        }
+    
+}
