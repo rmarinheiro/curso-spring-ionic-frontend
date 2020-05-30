@@ -16,6 +16,7 @@ export class StorageService{
 
     setLocalUser(obj:LocalUser){
         if(obj == null){
+            console.log("Entrou aqui" + obj);
             localStorage.removeItem(STORAGE_KEYS.localUser);
         }else{
             localStorage.setItem(STORAGE_KEYS.localUser,JSON.stringify(obj));
