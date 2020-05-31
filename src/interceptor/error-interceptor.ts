@@ -50,7 +50,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         let alert = this.alertController.create({
             title: 'Erro 403 falha na autenticação',
             message: 'Email ou senha incorretas',
-            enableBackdropDismiss:false,
+            enableBackdropDismiss:true,
             buttons:[
                 {
                     text: 'OK'
@@ -58,7 +58,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             ]
             
         });
-        alert.present();
+       alert.present();
         
     }
 
