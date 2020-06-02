@@ -58,7 +58,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             ]
             
         });
-       alert.present();
+      // alert.present();
         
     }
 
