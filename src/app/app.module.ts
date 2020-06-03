@@ -15,6 +15,7 @@ import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.services';
 import { ClienteService } from '../services/domain/cliente.service';
 import { AuthInterceptor, AuthInterceptorProvider } from '../interceptor/auth.interceptor';
+import { ProdutoService } from '../services/domain/produto.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AuthInterceptor, AuthInterceptorProvider } from '../interceptor/auth.in
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaService,AuthInterceptorProvider,ErrorInterceptorProvider,AuthService,
-    StorageService,ClienteService
+    StorageService,ClienteService,ProdutoService
   ]
 })
 export class AppModule {}
