@@ -1,6 +1,6 @@
-import { Injectable } from "../../../node_modules/@angular/core";
-import { HttpClient } from "../../../node_modules/@angular/common/http";
-import { Observable } from "rxjs/RX";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 import { EstadoDTO } from "../../models/estado.dto";
 import { API_CONFIG } from "../../config/api.config";
 

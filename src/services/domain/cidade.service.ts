@@ -1,5 +1,5 @@
-import { Inject, Injectable } from "../../../node_modules/@angular/core";
-import { HttpClient } from "../../../node_modules/@angular/common/http";
+import { Inject, Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
 import { CidadeDTO } from "../../models/cidade.dto";
 import { API_CONFIG } from "../../config/api.config";

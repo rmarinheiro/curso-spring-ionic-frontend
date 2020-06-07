@@ -1,4 +1,4 @@
-import {IonicPageModule} from 'ionic-angular/module';
+import {IonicPageModule} from 'ionic-angular';
 import {NgModule} from '@angular/core';
 
 import {HomePage} from './home';

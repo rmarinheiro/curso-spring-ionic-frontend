@@ -6,7 +6,7 @@ import { EstadoService } from '../../services/domain/estados.services';
 import { EstadoDTO } from '../../models/estado.dto';
 import { CidadeDTO } from '../../models/cidade.dto';
 import { ClienteService } from '../../services/domain/cliente.service';
-import { AlertController } from '../../../node_modules/ionic-angular/components/alert/alert-controller';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
 
 @IonicPage()

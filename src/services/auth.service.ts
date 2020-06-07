@@ -1,6 +1,6 @@
-import { Injectable } from "../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 import { CredenciasDTO } from "../models/credencias.dto";
-import { HttpClient } from "../../node_modules/@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { API_CONFIG } from "../config/api.config";
 import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.services";
