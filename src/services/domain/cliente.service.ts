@@ -13,11 +13,11 @@ export class ClienteService{
 
    
         
-        findByEmail(email:string):Observable<ClienteDTO>{
+        findByEmail(email:string){
            
             console.log("Email do Usuário : " + email);
 
-            return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?email=${email}`);
+            return this.http.get(`${API_CONFIG.baseUrl}/clientes/email?email=${email}`);
         }
 
         getImageFromBucket(id:String):Observable<any>{
