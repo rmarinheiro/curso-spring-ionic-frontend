@@ -33,7 +33,7 @@ export class PayamentPage {
 
   nextPage(){
     this.pedido.pagamento = this.formGroup.value;
-    console.log(this.pedido)
+    this.navCtrl.setRoot('OrderConfirmaionPage',{pedido:this.pedido})
   }
 
 }
