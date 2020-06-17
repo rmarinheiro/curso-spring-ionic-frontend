@@ -10,7 +10,7 @@ export class CartService{
     }
 
     createOrClearCart():Cart{
-        let cart : Cart ={items:[]};
+        let cart : Cart ={itens:[]};
         this.storage.setLocalCart(cart);
         return cart;
     }
@@ -25,9 +25,9 @@ export class CartService{
  
     addProduto (produto : ProdutoDTO) : Cart {
         let cart = this.getCart();
-        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+        let position = cart.itens.findIndex(x => x.produto.id == produto.id);
         if(position == -1){
-            cart.items.push({quantidade:1 , produto:produto});
+            cart.itens.push({quantidade:1 , produto:produto});
         }
         this.storage.setLocalCart(cart);
         return cart;
@@ -36,9 +36,9 @@ export class CartService{
 
     removePrduto (produto : ProdutoDTO) : Cart {
         let cart = this.getCart();
-        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+        let position = cart.itens.findIndex(x => x.produto.id == produto.id);
         if(position != -1){
-            cart.items.splice(position,1);
+            cart.itens.splice(position,1);
         }
         this.storage.setLocalCart(cart);
         return cart;
@@ -47,9 +47,9 @@ export class CartService{
 
     increaseQuantity (produto : ProdutoDTO) : Cart {
         let cart = this.getCart();
-        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+        let position = cart.itens.findIndex(x => x.produto.id == produto.id);
         if(position != -1){
-            cart.items[position].quantidade++;
+            cart.itens[position].quantidade++;
         }
         this.storage.setLocalCart(cart);
         return cart;
@@ -58,10 +58,10 @@ export class CartService{
 
     decreaseQuantity (produto : ProdutoDTO) : Cart {
         let cart = this.getCart();
-        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+        let position = cart.itens.findIndex(x => x.produto.id == produto.id);
         if(position != -1){
-            cart.items[position].quantidade--;
-            if(cart.items[position].quantidade < 1){
+            cart.itens[position].quantidade--;
+            if(cart.itens[position].quantidade < 1){
                 cart = this.removePrduto(produto);
             }
         }
@@ -73,8 +73,8 @@ export class CartService{
     total(): number{
         let cart = this.getCart();
         let sum = 0;
-        for(var i=0; i<cart.items.length ; i++){
-            sum += cart.items[i].produto.preco * cart.items[i].quantidade;
+        for(var i=0; i<cart.itens.length ; i++){
+            sum += cart.itens[i].produto.preco * cart.itens[i].quantidade;
         }
 
         return sum;

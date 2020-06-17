@@ -14,7 +14,7 @@ import { ProdutoDTO } from '../../models/produto.dto';
 })
 export class CartPage {
 
-  items : CartItem[];
+  itens : CartItem[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public cartService : CartService,
@@ -23,15 +23,15 @@ export class CartPage {
 
   ionViewDidLoad() {
     let cart = this.cartService.getCart();
-    this.items = cart.items;
+    this.itens = cart.itens;
     this.loadImageUrls();
 
 
   }
 
   loadImageUrls(){
-    for(var i=0;i<this.items.length;i++){
-      let item = this.items[i];
+    for(var i=0;i<this.itens.length;i++){
+      let item = this.itens[i];
       this.produtoService.getSmallImageFromBucket(item.produto.id)
       .subscribe(response =>{
         item.produto.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.produto.id}-small.jpg`
@@ -42,15 +42,15 @@ export class CartPage {
   }
 
   removeItem(produto:ProdutoDTO){
-    this.items = this.cartService.removePrduto(produto).items
+    this.itens = this.cartService.removePrduto(produto).itens
   }
 
    increaseQuantity(produto:ProdutoDTO){
-    this.items = this.cartService.increaseQuantity(produto).items
+    this.itens = this.cartService.increaseQuantity(produto).itens
   }
 
   decreaseQuantity(produto:ProdutoDTO){
-    this.items = this.cartService.decreaseQuantity(produto).items
+    this.itens = this.cartService.decreaseQuantity(produto).itens
   }
 
   total(): number{
