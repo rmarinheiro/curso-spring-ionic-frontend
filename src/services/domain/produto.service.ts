@@ -16,9 +16,8 @@ export class ProdutoService{
         return this.http.get<ProdutoDTO>(`${API_CONFIG.baseUrl}/produto/${produto_id}`);
     }
 
-    findByCategoria(categoria_id : string){
-    console.log(categoria_id);
-    return this.http.get(`${API_CONFIG.baseUrl}/produto/?categorias=${categoria_id}`) 
+    findByCategoria(categoria_id : string, page:number = 0,linesPerPage : number = 24){
+    return this.http.get(`${API_CONFIG.baseUrl}/produto/?categorias=${categoria_id}&page=${page}&linesPerPage=${linesPerPage}`) 
     }
 
     getSmallImageFromBucket(id :string):Observable<any>{
